@@ -1,5 +1,4 @@
-FROM --platform=linux/x86_64 node:20.11.0-buster-slim
-
+FROM node:20.11.0
 RUN apt-get update
 RUN apt-get install -y locales
 RUN locale-gen ja_JP.UTF-8
@@ -8,5 +7,5 @@ ENV LANG=ja_JP.UTF-8
 ENV TZ=Asia/Tokyo
 WORKDIR /app
 RUN apt-get install -y openssl
-RUN apt-get install -y git
+RUN apt-get install -y git openssh-client
 RUN npm install -g npm
